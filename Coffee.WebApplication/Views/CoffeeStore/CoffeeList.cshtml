@@ -1,0 +1,96 @@
+﻿@model Coffee.WebApplication.Models.CoffeeToStoreModel
+@{
+    Layout = "_ControlPanelLayout";
+}
+
+<h2 style="margin-bottom:30px">products</h2>
+
+<form asp-action="MovetoStore">
+    @*<div asp-validation-summary="All" class="text-danger"></div>*@
+    <div class="row">
+            <div class="form-group col-md-6">
+                <label class="control-label">Move to the store:</label>
+                
+                @Html.DropDownListFor(x => x.StoreId, new SelectList(Model.Stores, "StoreId", "FullName", Model.StoreId), "---", new { @class = "form-control" })
+                <span asp-validation-for="StoreId" class="text-danger"></span>
+                </div>
+            <div class="form-group col-md-6">
+            
+                <label asp-for="PostDate" class="control-label"></label>
+                <input type="datetime-local" asp-for="PostDate" class="form-control " required />
+                <span asp-validation-for="PostDate" class="text-danger"></span>
+            </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                @*<th>
+                        @Html.DisplayNameFor(model => model.CoffeeId)
+                    </th>*@
+                <th>
+                    Name
+                </th>
+                <th>
+                    ProductionDate
+                </th>
+                <th>
+                    Quantity
+                </th>
+                <th>
+                    PackQuantity
+                </th>
+                <th>
+                    SendedPackQuantity
+                </th>
+                @*<th></th>*@
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.CoffeeModels != null)
+            {
+                @for (int i = 0; i < Model.CoffeeModels.Count; i++)
+
+                {
+                    <input type="hidden" value="@Model.CoffeeModels[i].CoffeeId" asp-for="@Model.CoffeeModels[i].CoffeeId" />
+                    <input type="hidden" value="@Model.CoffeeModels[i].CoffeeTypeModel.QuantityInPack" asp-for="@Model.CoffeeModels[i].CoffeeTypeModel.QuantityInPack" />
+                    <tr>
+                        @*<td>
+                                @Html.DisplayFor(modelItem => item.CoffeeId)
+                            </td>*@
+                        <td>
+                            <label asp-for="@Model.CoffeeModels[i].CoffeeTypeModel.Title">@Model.CoffeeModels[i].CoffeeTypeModel.Title</label>
+                        </td>
+                        <td>
+                            <label asp-for="@Model.CoffeeModels[i].ProductionDate.Date">@Model.CoffeeModels[i].ProductionDate.Date</label>
+                        </td>
+                        <td>
+                            <label asp-for="@Model.CoffeeModels[i].Quantity">@Model.CoffeeModels[i].Quantity</label>
+
+                        </td>
+                        <td>
+                            <label asp-for="@Model.CoffeeModels[i].PackQuantity">@Model.CoffeeModels[i].PackQuantity</label>
+                        </td>
+                        <td>
+                            <input type="number" min="0" max="@Model.CoffeeModels[i].PackQuantity" value="@Model.CoffeeModels[i].SendedPackQuantity" asp-for="@Model.CoffeeModels[i].SendedPackQuantity" />
+                        </td>
+                        @*<td>
+                                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                            </td>*@
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <div class="form-group">
+
+        <input type="submit" value="Move" class="btn btn-primary" />
+
+    </div>
+</form>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

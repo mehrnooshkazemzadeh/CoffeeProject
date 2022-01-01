@@ -1,0 +1,58 @@
+﻿@model Coffee.WebApplication.Models.StoreScheduleModel
+@{
+    Layout = "_ControlPanelLayout";
+}
+<h4>StoreScheduleModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Save" asp-route-id="@Model.StoreId">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="@Model.StoreId" />
+            <input type="hidden" asp-for="@Model.StoreScheduleId" />
+            <div class="form-group">
+                <label asp-for="Day" class="control-label"></label>
+
+                <select asp-for="Day" class="form-control">
+                    <option value="">----</option>
+                    <option value="Thursday">Monday</option>
+                    <option value="Wendsday">Tuesday</option>
+                    <option value="Thuseday">Wednesday</option>
+                    <option value="Friday">Thursday</option>
+                    <option value="Saterday">Friday</option>
+                    <option value="Sunnday">Saturday</option>
+                    <option value="Monday">Sunday</option>
+                </select>
+                <span asp-validation-for="Day" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StartTime" class="control-label"></label>
+                <input type="time" asp-for="StartTime" class="form-control" />
+                <span asp-validation-for="StartTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EndTime" class="control-label"></label>
+                <input type="time" asp-for="EndTime" class="form-control" />
+                <span asp-validation-for="EndTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @if (Model.StoreScheduleId == Guid.Empty)
+                {
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                }
+                else
+                {
+                    <input type="submit" value="Save" class="btn btn-primary" />
+                }
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" asp-route-id="@(Model.StoreId==Guid.Empty ? ViewContext.RouteData.Values["id"] : Model.StoreId)">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,59 @@
+﻿@model IEnumerable<Coffee.WebApplication.Models.StoreScheduleModel>
+@{
+    Layout = "_ControlPanelLayout";
+}
+<h1>StoreScheduleManagement</h1>
+
+<p>
+    <a asp-action="Create" asp-route-id="@ViewContext.RouteData.Values["id"]">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.StoreScheduleId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StoreId)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Day)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartTime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndTime)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.StoreScheduleId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.StoreId)
+                        </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Day)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StartTime.TimeOfDay)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EndTime.TimeOfDay)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.StoreScheduleId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.StoreScheduleId, storeId = item.StoreId })
+                    </td>
+                </tr>
+            }}
+    </tbody>
+</table>

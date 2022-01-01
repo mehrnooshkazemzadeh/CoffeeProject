@@ -1,0 +1,69 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31515.178
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{E102A36B-17E7-4A64-8448-D06067758B0D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Framework.Core", "Framework.Core\Framework.Core.csproj", "{1A4DE0A9-27BF-48DE-A2CF-F2FF9830D870}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoffeeService", "CoffeeService\CoffeeService.csproj", "{8915DFF6-9E2E-4F0F-9B04-640B49B23D31}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Coffee.WebApplication", "Coffee.WebApplication\Coffee.WebApplication.csproj", "{9721FAF3-E8CB-4B37-A20E-B047A2EC89DE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{C2860C0A-2794-4555-8351-68F7A7081D3C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StoreAPI", "StoreAPI\StoreAPI.csproj", "{6F49656C-36D7-4900-B71F-284D47AAECCA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{54359ED0-F554-4605-8D34-4B38AB7890F6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CoffeeFactory.WindowsService", "CoffeeFactory.WindowsService\CoffeeFactory.WindowsService.csproj", "{4CDEE89C-65FB-488E-8BC6-7401C2D85B54}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ShareService", "ShareService", "{A00FC221-8A10-43BB-BF43-9B54BE60A436}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Coffee.APIProvider", "Coffee.SharedService\Coffee.APIProvider.csproj", "{7564FB47-499A-494C-878E-61AA3E9CFFDC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1A4DE0A9-27BF-48DE-A2CF-F2FF9830D870}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A4DE0A9-27BF-48DE-A2CF-F2FF9830D870}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A4DE0A9-27BF-48DE-A2CF-F2FF9830D870}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A4DE0A9-27BF-48DE-A2CF-F2FF9830D870}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8915DFF6-9E2E-4F0F-9B04-640B49B23D31}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8915DFF6-9E2E-4F0F-9B04-640B49B23D31}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8915DFF6-9E2E-4F0F-9B04-640B49B23D31}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8915DFF6-9E2E-4F0F-9B04-640B49B23D31}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9721FAF3-E8CB-4B37-A20E-B047A2EC89DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9721FAF3-E8CB-4B37-A20E-B047A2EC89DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9721FAF3-E8CB-4B37-A20E-B047A2EC89DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9721FAF3-E8CB-4B37-A20E-B047A2EC89DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6F49656C-36D7-4900-B71F-284D47AAECCA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6F49656C-36D7-4900-B71F-284D47AAECCA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6F49656C-36D7-4900-B71F-284D47AAECCA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6F49656C-36D7-4900-B71F-284D47AAECCA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CDEE89C-65FB-488E-8BC6-7401C2D85B54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CDEE89C-65FB-488E-8BC6-7401C2D85B54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CDEE89C-65FB-488E-8BC6-7401C2D85B54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CDEE89C-65FB-488E-8BC6-7401C2D85B54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7564FB47-499A-494C-878E-61AA3E9CFFDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7564FB47-499A-494C-878E-61AA3E9CFFDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7564FB47-499A-494C-878E-61AA3E9CFFDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7564FB47-499A-494C-878E-61AA3E9CFFDC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1A4DE0A9-27BF-48DE-A2CF-F2FF9830D870} = {E102A36B-17E7-4A64-8448-D06067758B0D}
+		{8915DFF6-9E2E-4F0F-9B04-640B49B23D31} = {C2860C0A-2794-4555-8351-68F7A7081D3C}
+		{6F49656C-36D7-4900-B71F-284D47AAECCA} = {C2860C0A-2794-4555-8351-68F7A7081D3C}
+		{7564FB47-499A-494C-878E-61AA3E9CFFDC} = {A00FC221-8A10-43BB-BF43-9B54BE60A436}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E180391D-C0DE-4787-BFAE-19D234C5C206}
+	EndGlobalSection
+EndGlobal

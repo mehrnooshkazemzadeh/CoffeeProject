@@ -1,0 +1,106 @@
+﻿@model List<Coffee.WebApplication.Models.CoffeeStoreModel>
+@{
+    Layout = "_ControlPanelLayout";
+}
+<h1>Recieving the products</h1>
+
+<form asp-action="RecieveCoffees">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+
+                </th>
+
+                <th>
+                    Name
+                </th>
+                @*<th>
+                        @Html.DisplayNameFor(model => model.StoreId)
+                    </th>*@
+
+                <th>
+                    Status
+                </th>
+                <th>
+                    PostDate
+                </th>
+                <th>
+                    Quantity
+                </th>
+                @*<th>
+                        Quantity
+                    </th>*@
+                <th>
+                    RecievedDate
+                </th>
+                @*<th>
+                        Poststatus
+                    </th>*@
+
+
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+                @for (int i = 0; i < Model.Count; i++)
+
+                {
+                    <input type="hidden" asp-for="@Model[i].CoffeeStoreId" />
+                    <input type="hidden" asp-for="@Model[i].CoffeeId" />
+                    <input type="hidden" asp-for="@Model[i].StoreId" />
+                    <tr>
+                        <td>
+                            @if (Model[i].PostStatusName == "Postet")
+                            {
+                                <input type="checkbox" asp-for="@Model[i].Checked" value="@Model[i].Checked" />
+                            }
+                        </td>
+                        <td>
+                            <label asp-for="@Model[i].CoffeeTypeName">@Model[i].CoffeeTypeName</label>
+                        </td>
+                        @* <td>
+                                @Html.DisplayFor(modelItem => item.CoffeeId)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.StoreId)
+                            </td>*@
+                        <td>
+                            <label asp-for="@Model[i].PostStatusName">@Model[i].PostStatusName</label>
+                        </td>
+
+                        <td>
+                            <label asp-for="@Model[i].PostDate">@Model[i].PostDate</label>
+                        </td>
+
+                        <td>
+                            <label asp-for="@Model[i].PostDate">@Model[i].Quantity</label>
+                        </td>
+                        @*<td>
+                                <input type="text"  asp-for="@Model[i].NewQuantity" value="@Model[i].NewQuantity"/>
+                            </td>*@
+                        <td>
+                            <input type="datetime-local" value="@Model[i].RecievedDate" asp-for="@Model[i].RecievedDate" />
+                        </td>
+                        @*<td>
+                                @Html.DropDownListFor(x => Model[i].Poststatus, new SelectList(new List<string> { "Recieved", "Reffered" }), "---", Model[i].Poststatus)
+                            </td>*@
+
+
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+    <div class="form-group">
+
+        <input type="submit" value="Recieved" class="btn btn-primary" />
+
+    </div>
+</form>
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

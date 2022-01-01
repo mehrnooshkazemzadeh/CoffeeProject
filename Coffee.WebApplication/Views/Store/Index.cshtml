@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Coffee.WebApplication.Models.StoreModel>
+
+@{
+    ViewData["Title"] = "Index";
+    
+        Layout = "_ControlPanelLayout";
+    
+}
+
+<h1>StoreManagement</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.StoreId)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null)
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.StoreId)
+                        </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Address)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.StoreId }) |
+                        @Html.ActionLink("TimeSchedule", "Index", "StoreSchedule", new { id = item.StoreId }) |
+                        @*@Html.ActionLink("Delete", "Delete", new { id = item.StoreId })*@
+                        <button type="button" id="@item.StoreId" class="btn btn-danger btn-xs btn-flat mr-1 removeRecord"><i class="fas fa-times"></i></button>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+@section Scripts{
+    <script>
+        $(document).on('click', '.removeRecord', function () {
+            var id = $(this).attr("id");
+            Notiflix.Confirm.Show('Remove Confirm', 'Are you sure to remove this item?', 'Yes', 'No',
+                function () {
+                    $.ajax({
+                        url: 'store/delete/',
+                        data: { "id": id },
+                        type: 'DELETE',
+                        success: function (data) {
+                            location.reload();
+                        }
+                    });
+                },
+                function () {
+                });
+
+        });
+    </script>
+}
